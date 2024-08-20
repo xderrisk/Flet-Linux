@@ -23,6 +23,9 @@ nombre_usuario ALL=(ALL:ALL) ALL
 # Prerrequisitos
 Aquí les presento un resumen de los prerrequisitos según [Android Studio](https://developer.android.com/studio/install?hl=es-419#64bit-libs) y [Flutter SDK](https://docs.flutter.dev/get-started/install/linux/desktop#development-tools):
 ```bash
+sudo apt update && sudo apt upgrade -y
+```
+```bash
 sudo apt install -y curl git unzip xz-utils zip libglu1-mesa python3-venv
 ```
 ```bash
