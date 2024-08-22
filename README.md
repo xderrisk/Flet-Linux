@@ -115,14 +115,20 @@ source .venv/bin/activate
 ```bash
 pip install flet
 ```
-- Crear un proyecto Flet (cambia 'ejemplo' por el nombre que quiera para tu proyecto)
+- Crear un proyecto Flet
+
+Opcion 1: (cambia 'ejemplo' por el nombre que quiera para tu proyecto)
 ```bash
 flet create ejemplo
 ```
-- Entrar en el proyecto
 ```bash
 cd ejemplo
 ```
+Opcion 2: (al crear el apk o ejecutable el tamaño sera mayor)
+```bash
+flet create .
+```
+
 # 4. Crear APK y ejecutable para Linux
 - Crea APK
 ```bash
@@ -139,4 +145,18 @@ flet build apk --flutter-build-args=--target-platform --flutter-build-args=andro
 - Crear ejecutable Linux
 ```bash
 flet build linux
+```
+# Problemas conocidos
+- libmpv.so.1 no puede encontra en tu sistema
+```bash
+(.venv) derrisk@forrest:~/Documentos/nuevo-proyecto$ flet run ejemplo/main.py
+/home/derrisk/.flet/bin/flet-0.23.2/flet/flet: error while loading shared libraries: libmpv.so.1: cannot open shared object file: No such file or directory
+```
+Solución 1: instala libmpv.so.1 (en mi caso no estaba disponible)
+```bash
+sudo apt-get install libmpv1
+```
+Solución 2: crea un enlace simbolico para que libmpv.so.1 apunte a libmpv.so.2
+```bash
+sudo ln -s /usr/lib/x86_64-linux-gnu/libmpv.so.2 /usr/lib/x86_64-linux-gnu/libmpv.so.1
 ```
